@@ -1,6 +1,5 @@
 package com.anjul.exercise.kittipay.core
 
-import android.app.ProgressDialog
 import android.os.Bundle
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
@@ -12,16 +11,10 @@ import com.google.android.material.appbar.MaterialToolbar
 
 abstract class BaseActivity<B : ViewDataBinding> : AppCompatActivity() {
     lateinit var binding: B
-    val progressDialog: ProgressDialog by lazy {
-        ProgressDialog(this@BaseActivity)
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, getLayout())
-        progressDialog.setMessage("Processing")
-        progressDialog.setCancelable(false)
-
     }
 
     fun showProgress() {
