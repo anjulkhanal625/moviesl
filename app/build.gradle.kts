@@ -14,11 +14,13 @@ android {
         versionCode = 1
         versionName = "1.0"
 
+
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
     buildFeatures {
         dataBinding = true
+        buildConfig = true
     }
 
 
@@ -46,6 +48,17 @@ dependencies {
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
     implementation(libs.androidx.databinding.runtime)
+
+    implementation(libs.retrofit)
+    implementation(libs.retrofit.converter.json)
+    implementation(libs.okhttp3)
+    implementation(libs.okhttp3.logging.interceptor)
+
+
+
+
+
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
