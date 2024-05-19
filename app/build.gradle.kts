@@ -57,6 +57,7 @@ dependencies {
 
 
     implementation(libs.glide)
+    testImplementation("junit:junit:4.12")
     kapt(libs.glide.compiler)
 
 
