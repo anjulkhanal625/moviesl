@@ -7,10 +7,10 @@ import com.compass_group.compis_b2b.network.ApiService
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 
-class TmdbRepository(application: Application) : BaseRepository(application),
+class MoviesRepository(application: Application) : BaseRepository(application),
     TmdbRepositoryContract {
 
-    val TAG: String = TmdbRepository::class.java.simpleName
+    val TAG: String = MoviesRepository::class.java.simpleName
     private val apiService: ApiService by lazy {
         getApiService(application)
     }

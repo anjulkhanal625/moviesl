@@ -13,7 +13,7 @@ class MovieListViewModel(application: Application) : BaseViewModel(application) 
     var repo: TmdbRepositoryContract
 
     init {
-        repo = TmdbRepository(application)
+        repo = MoviesRepository(application)
     }
 
 
