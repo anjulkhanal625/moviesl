@@ -1,19 +1,17 @@
 package com.compass_group.compis_b2b.network
 
-import com.anjul.exercise.kittipay.rest.BaseResponse
-import retrofit2.http.Body
-import retrofit2.http.POST
+import com.anjul.exercise.kittipay.rest.response.MovieResponse
+import retrofit2.http.GET
+import retrofit2.http.Query
 
 
 interface ApiService {
 
-
-
-//    @POST("otp/verify")
-//    suspend fun verifyOtp(@Body body: MpinRequest): BaseResponse<Any>
-//
-//    @POST("payment/khalti/verify/callback")
-//    suspend fun acknowledgePayment(@Body body: SubscriptionDto): BaseResponse<Any>
+    @GET("movie/popular")
+    suspend fun getPopularMovies(
+        @Query("api_key") apiKey: String,
+        @Query("page") page: Int = 1
+    ): MovieResponse
 
 
 }

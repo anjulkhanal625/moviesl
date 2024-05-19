@@ -16,7 +16,7 @@ class RetrofitInstance(private val context: Context) {
     fun getApiService(): ApiService {
         val retrofit = Retrofit.Builder()
 //            .baseUrl(BuildConfig.BASE_URL)
-            .baseUrl("https://sojo-data-api.k8s.yipl.com.np/api/")
+            .baseUrl("https://api.themoviedb.org/3/movie/")
             .addConverterFactory(GsonConverterFactory.create())
             .client(getHttpClient())
             .build()
