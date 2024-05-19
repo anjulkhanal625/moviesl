@@ -30,7 +30,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <!--        app:imageUrl="@{viewModel.moviesDetails.backdropPath.empty ? viewModel.placeholderImage : viewModel.moviesDetails.backdropPath}"-->
 
         <TextView
             android:text="@{viewModel.movieTitle}"
@@ -92,6 +91,17 @@
             android:visibility="@{viewModel.loading? View.GONE : View.VISIBLE}"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
+
+       <com.anjul.exercise.kittipay.view.costumview.StatusView
+           android:id="@+id/status_view"
+           android:layout_width="0dp"
+           app:initialStatus="loading"
+           app:layout_constraintTop_toBottomOf="@id/textViewTitle"
+           app:layout_constraintStart_toStartOf="parent"
+           app:layout_constraintEnd_toEndOf="parent"
+           android:layout_height="wrap_content"/>
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>

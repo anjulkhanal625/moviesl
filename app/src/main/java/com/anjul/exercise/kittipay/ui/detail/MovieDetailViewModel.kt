@@ -4,6 +4,7 @@ import android.app.Application
 import android.content.Intent
 import androidx.databinding.ObservableField
 import com.anjul.exercise.kittipay.core.BaseViewModel
+import com.anjul.exercise.kittipay.enums.Status
 import com.anjul.exercise.kittipay.rest.response.MovieDetails
 import com.anjul.exercise.kittipay.ui.list.MoviesRepository
 import com.anjul.exercise.kittipay.ui.list.MoviesRepositoryContract
@@ -22,12 +23,16 @@ class MovieDetailViewModel(application: Application) : BaseViewModel(application
 
     private fun getMovieDetail(movieId: Int?) {
         viewModelScope.launch {
-            if (movieId != 0) {
-                repo.fetchMovieDetail(movieId!!).collect {
-                    moviesDetails.set(it)
-                    loading.set(false)
+            if(hasInternetConnection(getApplication())){
+                if (movieId != 0) {
+                    repo.fetchMovieDetail(movieId!!).collect {
+                        moviesDetails.set(it)
+                        status.value= Status.OK
+                        loading.set(false)
+                    }
                 }
             }
+
 
         }
 

@@ -26,6 +26,7 @@ class MoviesRepository(application: Application) : BaseRepository(application),
     override fun fetchMovieDetail(movieId: Int): Flow<MovieDetails> {
         return flow {
             val response = apiService.getMovieDetails(movieId)
+
             emit(response)
         }
     }
