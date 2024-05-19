@@ -35,10 +35,11 @@ class MovieListActivity : BaseViewModelActivity<ActivityMovieListBinding, MovieL
                 UtilPair.create(sharedImageView, "banner"),
                 UtilPair.create(titleTextView, "title")
             )
-            // Start the new activity
+
             startActivity(intent, options.toBundle())
         }
         binding.recyclerView.adapter = movieAdapter
+        handleStatus(binding.statusView)
 
     }
     override fun onCreateViewModel(savedInstanceState: Bundle?) {
