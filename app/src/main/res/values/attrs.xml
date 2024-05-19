@@ -1,0 +1,7 @@
+<resources>
+    <declare-styleable name="BulletTextView">
+        <attr name="bulletColor" format="color" />
+        <attr name="bulletRadius" format="dimension" />
+        <attr name="bulletSpacing" format="dimension" />
+    </declare-styleable>
+</resources>

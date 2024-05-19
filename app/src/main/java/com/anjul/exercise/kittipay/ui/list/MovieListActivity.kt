@@ -2,6 +2,7 @@ package com.anjul.exercise.kittipay.ui.list
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.anjul.exercise.kittipay.R
@@ -22,8 +23,10 @@ class MovieListActivity : BaseViewModelActivity<ActivityMovieListBinding, MovieL
         binding.recyclerView.layoutManager = LinearLayoutManager(this)
         movieAdapter.setClickListner { movieId ->
             val intent = Intent(this@MovieListActivity, MovieDetailActivity::class.java).apply {
+                Log.d("MovieId ", " putting extra ${movieId}")
                 putExtra("movieId", movieId)
             }
+            Log.d("MovieId ", " clicked movieId is ${movieId}")
             startActivity(intent)
         }
         binding.recyclerView.adapter = movieAdapter

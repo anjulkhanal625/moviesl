@@ -16,12 +16,15 @@ class MovieDetailActivity :
     }
 
     override fun onCreateViewModel(savedInstanceState: Bundle?) {
-        val movieId: Int? = intent?.getIntExtra("moviesId", 0)
+        val movieId: Int? = intent?.getIntExtra("movieId", 0)
+        binding.viewModel = viewModel
         initViews()
         viewModel.getMovieDetail(movieId)
+        initObserver()
     }
 
     private fun initObserver() {
+//        viewModel.moviesDetails.
 
     }
 
