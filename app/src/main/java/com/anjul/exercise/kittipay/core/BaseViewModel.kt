@@ -1,6 +1,7 @@
 package com.anjul.exercise.kittipay.core
 
 import android.app.Application
+import androidx.databinding.ObservableField
 import androidx.lifecycle.AndroidViewModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -11,6 +12,7 @@ abstract class BaseViewModel(application: Application) : AndroidViewModel(applic
     private val job by lazy {
         SupervisorJob()
     }
+    var loading: ObservableField<Boolean> = ObservableField(true)
     val viewModelScope = CoroutineScope(Dispatchers.Main + job)
 
 }

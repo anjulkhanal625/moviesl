@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
@@ -18,21 +19,27 @@
         android:layout_height="match_parent">
 
         <ImageView
+            android:transitionName="banner"
+            app:imageUrl="@{viewModel.moviesDetails.backdropPath.empty ? viewModel.placeholderImage : viewModel.moviesDetails.backdropPath}"
             android:id="@+id/imageViewBackdrop"
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:scaleType="centerCrop"
-            app:imageUrl="@{viewModel.moviesDetails.backdropPath}"
+            tools:background="@color/black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <!--        app:imageUrl="@{viewModel.moviesDetails.backdropPath.empty ? viewModel.placeholderImage : viewModel.moviesDetails.backdropPath}"-->
+
         <TextView
+            android:text="@{viewModel.movieTitle}"
+            android:transitionName="title"
             android:id="@+id/textViewTitle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
-            android:text="@{viewModel.moviesDetails.title}"
+            tools:text="Title"
             android:textSize="24sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
@@ -74,7 +81,17 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/textViewReleaseDate" />
 
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/groupLoading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
 
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/groupContent"
+            app:constraint_referenced_ids="textViewOverview,textViewOverview,textViewReleaseDate"
+            android:visibility="@{viewModel.loading? View.GONE : View.VISIBLE}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>

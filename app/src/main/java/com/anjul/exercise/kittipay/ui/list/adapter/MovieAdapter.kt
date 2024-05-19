@@ -16,7 +16,7 @@ import com.bumptech.glide.Glide
 class MovieAdapter : RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
 
     private var movies: List<Movie> = listOf()
-    private var clickListner: ((Int) -> Unit)? = null
+    private var clickListner: ((Movie, ImageView, TextView) -> Unit)? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_movie, parent, false)
@@ -34,24 +34,24 @@ class MovieAdapter : RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
         notifyDataSetChanged()
     }
 
-    fun setClickListner(listner: ((Int) -> Unit)?) {
+    fun setClickListner(listner: ((Movie, ImageView, TextView) -> Unit)?) {
         clickListner = listner
     }
 
     inner class MovieViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val titleTextView: TextView = itemView.findViewById(R.id.titleTextView)
-        private val overviewTextView: TextView = itemView.findViewById(R.id.overviewTextView)
+//        private val overviewTextView: TextView = itemView.findViewById(R.id.overviewTextView)
         private val posterImageView: ImageView = itemView.findViewById(R.id.posterImageView)
         private val parentView: LinearLayout = itemView.findViewById(R.id.parent)
 
         fun bind(movie: Movie) {
             titleTextView.text = movie.title
-            overviewTextView.text = movie.overview
+//            overviewTextView.text = movie.overview
             Glide.with(itemView.context)
                 .load("https://image.tmdb.org/t/p/w500${movie.poster_path}")
                 .into(posterImageView)
             parentView.setOnClickListener {
-                clickListner?.invoke(movie.id)
+                clickListner?.invoke(movie, posterImageView, titleTextView)
             }
         }
     }
