@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsKotlinAndroid)
+    id("kotlin-kapt")
 }
 
 android {
@@ -53,6 +54,10 @@ dependencies {
     implementation(libs.retrofit.converter.json)
     implementation(libs.okhttp3)
     implementation(libs.okhttp3.logging.interceptor)
+
+
+    implementation(libs.glide)
+    kapt(libs.glide.compiler)
 
 
 

@@ -17,7 +17,7 @@ class TmdbRepository(application: Application) : BaseRepository(application),
 
     override fun fetchPopularMovies(): Flow<MovieResponse> {
         return flow {
-            val response = apiService.getPopularMovies(API_KEY)
+            val response = apiService.getPopularMovies()
             emit(response)
         }
     }
