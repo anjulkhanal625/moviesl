@@ -24,6 +24,11 @@
             </intent-filter>
 
         </activity>
+        <activity
+            android:name=".ui.detail.MovieDetailActivity"
+            android:exported="true"
+            android:screenOrientation="portrait" />
+
     </application>
 
 

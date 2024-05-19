@@ -10,7 +10,7 @@ import kotlinx.coroutines.launch
 class MovieListViewModel(application: Application) : BaseViewModel(application) {
 
     val movies = MutableLiveData<List<Movie>>()
-    var repo: TmdbRepositoryContract
+    var repo: MoviesRepositoryContract
 
     init {
         repo = MoviesRepository(application)

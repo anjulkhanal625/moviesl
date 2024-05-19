@@ -4,12 +4,11 @@ import android.app.Application
 import android.content.Context
 import android.content.SharedPreferences
 import android.preference.PreferenceManager
+import com.anjul.exercise.kittipay.rest.ApiService
 import com.anjul.exercise.kittipay.rest.RetrofitInstance
-import com.compass_group.compis_b2b.network.ApiService
 
 open class BaseRepository(val application: Application) {
 
-    final val API_KEY = ""
     lateinit var pref: SharedPreferences
 
     init {

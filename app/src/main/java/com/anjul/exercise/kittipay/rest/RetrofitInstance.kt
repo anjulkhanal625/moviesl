@@ -2,7 +2,6 @@ package com.anjul.exercise.kittipay.rest
 
 import android.content.Context
 import com.anjul.exercise.kittipay.commons.DataConstant.Companion.TIMEOUT
-import com.compass_group.compis_b2b.network.ApiService
 import okhttp3.OkHttpClient
 import java.util.concurrent.TimeUnit.SECONDS
 import retrofit2.Retrofit

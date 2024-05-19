@@ -2,13 +2,13 @@ package com.anjul.exercise.kittipay.ui.list
 
 import android.app.Application
 import com.anjul.exercise.kittipay.core.base.BaseRepository
+import com.anjul.exercise.kittipay.rest.ApiService
 import com.anjul.exercise.kittipay.rest.response.MovieResponse
-import com.compass_group.compis_b2b.network.ApiService
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 
 class MoviesRepository(application: Application) : BaseRepository(application),
-    TmdbRepositoryContract {
+    MoviesRepositoryContract {
 
     val TAG: String = MoviesRepository::class.java.simpleName
     private val apiService: ApiService by lazy {
@@ -24,6 +24,6 @@ class MoviesRepository(application: Application) : BaseRepository(application),
 }
 
 
-interface TmdbRepositoryContract {
+interface MoviesRepositoryContract {
     fun fetchPopularMovies(): Flow<MovieResponse>
 }
